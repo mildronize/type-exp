@@ -1,3 +1,1 @@
-// Treat type as data
-
-console.log('hey main');
+export * as e from './libs.js';

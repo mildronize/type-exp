@@ -24,12 +24,8 @@ I convert it into the TypeScript function:
 import { e } from 'type-exp';
 
 function MyPick<T, K>(Obj: any, Keys: e.keyof<K>) {
-    return e.map(
-      Keys,
-      (Key) => Key,
-      (Key) => Obj[Key],
-    );
-  }
+    return e.map(Keys, (Key) => [Key, Obj[Key]]);
+}
 
 const todo = {
     title: e.string(),

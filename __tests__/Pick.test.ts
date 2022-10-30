@@ -8,11 +8,7 @@ describe('Test Pick', () => {
   };
 
   function MyPick<T, K>(Obj: any, Keys: e.keyof<K>) {
-    return e.map(
-      Keys,
-      (Key) => Key,
-      (Key) => Obj[Key],
-    );
+    return e.map(Keys, (Key) => [Key, Obj[Key]]);
   }
 
   it('When using Pick with union', () => {

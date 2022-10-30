@@ -5,13 +5,12 @@ export function isPrimitive<T>(Object: T): boolean {
   return false;
 }
 
-export type TypeMapCallback = (value: keyof any) => unknown;
-export type KeyFn = (element: any, index: any) => keyof any;
-export type ValueFn = (element: any, index: any) => keyof any;
+export type KeyValueFn = (element: any, index: any) => [keyof any, keyof any];
 
-export function map<T extends any[]>(array: T, key: KeyFn, value: ValueFn): any {
+export function map<T extends any[]>(array: T, mapping: KeyValueFn): any {
   return array.reduce(function (result: any, _value: any, _index: any) {
-    result[key(_value, _index)] = value(_value, _index);
+    const [key, value] = mapping(_value, _index);
+    result[key] = value;
     return result;
   }, {});
 }
