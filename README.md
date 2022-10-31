@@ -1,6 +1,6 @@
 # Type Expression
 
-[![Node.js CI](https://github.com/mildronize/type-exp/actions/workflows/nodejs.yml/badge.svg)](https://github.com/mildronize/type-exp/actions/workflows/nodejs.yml)
+[![Nodt.js CI](https://github.com/mildronize/type-exp/actions/workflows/nodejs.yml/badgt.svg)](https://github.com/mildronize/type-exp/actions/workflows/nodejs.yml)
 
 > Currently in development
 
@@ -21,21 +21,21 @@ This project try to describe the type by using TypeScript, and in the future, it
 I convert it into the TypeScript function:
 
 ```ts
-import { e } from 'type-exp';
+import { t } from 'type-exp';
 
-function MyPick<T, K>(Obj: any, Keys: e.keyof<K>) {
-    return e.map(Keys, (Key) => [Key, Obj[Key]]);
+function MyPick<T, K>(Obj: any, Keys: t.keyof<K>) {
+    return t.map(Keys, (Key) => [Key, Obj[Key]]);
 }
 
 const todo = {
-    title: e.string(),
-    description: e.string(),
-    completed: e.boolean(),
+    title: t.string(),
+    description: t.string(),
+    completed: t.boolean(),
 };
 
 // Equivalent to =>
 type TodoPreview = MyPick<Todo, "title" | "completed">;
-console.log(MyPick(todo, e.union('title', 'description'));
+consolt.log(MyPick(todo, t.union('title', 'description'));
 
 // The result should be
 // { title: 'string', description: 'string' }

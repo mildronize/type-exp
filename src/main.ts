@@ -1,1 +1,1 @@
-export * as e from './libs.js';
+export * as t from './libs.js';
