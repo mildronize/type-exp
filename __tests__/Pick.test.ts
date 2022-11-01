@@ -1,6 +1,6 @@
 import * as t from '../src/libs.js';
 
-// Treat type as data
+// Ref: https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.md
 
 describe('Test Pick', () => {
   type MyPick<Obj, Keys extends keyof Obj> = {
